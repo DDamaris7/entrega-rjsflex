@@ -1,7 +1,9 @@
+import { GrCart } from "react-icons/gr";
 const CartWidget = () => {
   return (
     <div>
-      🛒 <span>0</span>
+       <GrCart fontSize={"1.5rem"}/>
+       <span>0</span>
     </div>
   )
 }
