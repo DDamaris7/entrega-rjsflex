@@ -1,7 +1,38 @@
-const ItemListContainer = ({ mensaje }) => {
-  return (
+
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
+import ItemList from "./ItemList"
+import {productos}from "../mock/products"
+
+
+const getProductos = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(productos)
+    }, 1000)
+  })
+}
+
+function ItemListContainer() {
+  const [items, setItems] = useState([])
+  const { categoryId } = useParams()
+
+  useEffect(() => {
+    getProductos().then((res) => {
+      if (categoryId) {
+        setItems(res.filter(prod => prod.category.toLowerCase () === categoryId. toLowerCase()))
+      } else {
+        setItems(res)
+      }
+    })
+  }, [categoryId])
+
+
+
+return (
     <main style={styles.container}>
-      <h1>{mensaje}</h1>
+      <h1>Productos</h1>
+      <ItemList items={items} />
     </main>
   )
 }
