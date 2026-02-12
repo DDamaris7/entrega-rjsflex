@@ -22,10 +22,13 @@ const getProducto = (id) => {
     getProducto(itemId).then((res) => {setItem(res)})
   }, [itemId])
 
+ 
+ //modificar el loading
   if (!item) {
-    return <p style={{ padding: "2rem" }}>Cargando producto...</p>
-  }
+  return <p style={{ padding: "2rem" }}>Cargando producto...</p>
+ } 
 
-  return <ItemDetail item={item} />
+  return 
+  <ItemDetail item={item} />
 }
 export default ItemDetailContainer
