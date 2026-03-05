@@ -28,7 +28,6 @@ const getProducto = (id) => {
   return <p style={{ padding: "2rem" }}>Cargando producto...</p>
  } 
 
-  return 
-  <ItemDetail item={item} />
+  return <ItemDetail item={item} />
 }
 export default ItemDetailContainer
