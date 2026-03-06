@@ -16,7 +16,7 @@ const Navbar = () => {
       <NavLink to= "/category/Frutas deshidratadas">Frutas deshidratadas</NavLink>
       <NavLink to= "/category/Raices">Raíces</NavLink>
       <NavLink to= "/category/Flores">Flores</NavLink>
-      <CartWidget  cantidad={0}  />
+      <NavLink to="/"><CartWidget  cantidad={0}/></NavLink>  
 
     </nav>
   )
