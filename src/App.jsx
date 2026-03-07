@@ -19,6 +19,7 @@ function App() {
         <Route path="/item/:itemId" element={<ItemDetailContainer />} />
         <Route path="*" element={<NotFound />} />
         <Route path= "/cart" element={<CartContainer/>}/>
+        <Route path= "/checkout" element={<Checkout/>}/>
       </Routes>
       
       </CartProvider>

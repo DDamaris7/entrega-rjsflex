@@ -1,9 +1,14 @@
+import { useContext } from "react";
 import { GrCart } from "react-icons/gr";
-const CartWidget = ({ cantidad = 0 }) => {
+import { CartContext } from "../context/CartContext";
+
+
+const CartWidget = () => {
+  const {cartQuantity, cart} = useContext(CartContext)
   return (
      <div style={styles.cart}>
        <GrCart fontSize={"1.5rem"}/>
-        <span style={styles.badge}>{cantidad}</span>
+        {cart.length> 0 && <span style={styles.badge}>{cartQuantity()}</span>}
     </div>
   )
 }
