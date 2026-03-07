@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail"
-import {productos}from "../mock/products"
 import { doc, getDoc } from "firebase/firestore"
-import { db } from "../service/firebase"
+import { db } from "../../service/firebase"
 
 
 //promesa simulada

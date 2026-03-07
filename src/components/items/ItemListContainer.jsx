@@ -1,21 +1,19 @@
 
 import { useState, useEffect } from "react"
 import ItemList from "./ItemList"
-import Loader from "./loader"
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
-import { db } from "../service/firebase"
-import { type } from "firebase/firestore/pipelines"
+import { db } from "../../service/firebase"
+import { useParams } from "react-router-dom"
+import { productos } from "../../mock/productos"
 
 const ItemListContainer = ({mensaje})=>{
-
+  const [loading, setLoading] = useState (true)
   const [items, setItems] = useState([])
-  const subirData =()=> {
-  const prodASubir = collection (db, "productos")
-    productos.map ((prod)=>addDoc(prodASubir, prod))
-  }  
+  const {categoryId} = useParams ()
+ 
   useEffect (()=>{
     setLoading (true)
-    const prodCollection = type ? query(collection (db, "productos"), where("category", "==", type)): (collection (db, "productos"))
+    const prodCollection = categoryId ? query(collection (db, "productos"), where("category", "==", categoryId)): (collection (db, "productos"))
     getDocs(prodCollection)
     .then((res)=>{
       const list = res.docs.map((doc)=>{
@@ -24,23 +22,22 @@ const ItemListContainer = ({mensaje})=>{
           ...doc.data()
         }
       })
-      setData(list)
+      setItems(list)
     })
-    .catcha((error)=>console.error(error))
+    .catch((error)=>console.error(error))
     .finally (()=> setLoading(false))
-  }, [type])
+  }, [categoryId])
+    if(loading){
+    return <h2>Cargando productos...</h2>
+  }
 
 
 return (
-  <> {
-    loading
-    ? <Loader/>
-     :<main style={styles.container}>
-    <button onClick={subirData}>SUBIR DATA</button>
-      <h1>Productos</h1>
+  
+     <main style={styles.container}>    
+      <h1>{mensaje}</h1>
       <ItemList items={items} />
-   </main> }
-   </>
+   </main> 
    )
 }
 

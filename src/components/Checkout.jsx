@@ -3,7 +3,7 @@ import { CartContext } from '../context/CartContext'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../service/firebase'
 import { Link } from 'react-router-dom'
-import EmptyCart from '../cart/EmptyCart'
+
 
 const Checkout = () => {
   const [buyer, setBuyer]= useState({})

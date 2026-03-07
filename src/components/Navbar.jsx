@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import CartWidget from "./Cartwidget";
+import CartWidget from "../components/cart/CartWidget";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
