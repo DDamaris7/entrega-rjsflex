@@ -4,7 +4,7 @@ import ItemList from "./ItemList"
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../../service/firebase"
 import { useParams } from "react-router-dom"
-import { productos } from "../../mock/productos"
+
 
 const ItemListContainer = ({mensaje})=>{
   const [loading, setLoading] = useState (true)
@@ -33,7 +33,6 @@ const ItemListContainer = ({mensaje})=>{
 
 
 return (
-  
      <main style={styles.container}>    
       <h1>{mensaje}</h1>
       <ItemList items={items} />
