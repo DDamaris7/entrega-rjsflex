@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { productos } from "../mock/products";
 
 //creacion del contexto
 export const CartContext = createContext()
@@ -15,14 +14,13 @@ export const CartProvider = ({children})=>{
    const addItem = (item, qty)=>{
       
     if (IsInCart(item.id)){
-        setCart(
-            cart.map ((productos)=>{
+        setCart(cart.map (prod => {
           
-            if(productos.id === item.id){
-             return{...productos, quantity: productos.quantity + qty}
+            if(prod.id === item.id){
+             return{...prod, quantity: prod.quantity + qty}
 
             }else{
-                return productos
+                return prod
             }
 
             }))
@@ -33,19 +31,18 @@ export const CartProvider = ({children})=>{
    }
    //borrar todo el carrito 
    const clear = ()=>{
-   
     setCart ([])
 
    }
 
     //elimino un item del array
     const removeItem = (id)=>{
-        setCart (cart.filter((productos)=>productos.id !== id))
+        setCart (cart.filter(prod =>prod.id !== id))
     }
    
     //tiene que devolver un booleano si ese producto esta o no en el carrito
     const IsInCart =(id)=> {
-        return cart.some ((productos)=>productos.id !== id)
+        return cart.some (prod=>prod.id === id)
     
     }
 
@@ -58,7 +55,7 @@ export const CartProvider = ({children})=>{
     }
 
     return(
-       <CartContext.Provider value={(cart, addItem, clear, removeItem, total, cartQuantity)}>
+       <CartContext.Provider value={{cart, addItem, clear, removeItem, total, cartQuantity}}>
         {children}
        </CartContext.Provider>
     )

@@ -8,10 +8,10 @@ import { Link } from "react-router-dom"
 
 
 const ItemDetail = ({ item }) => {
-  const {cart, addItem} = useContext (CartContext)
-  const [purchase, SetPurchase]=useState(false)
+  const {addItem} = useContext (CartContext)
+  const [purchase, setPurchase]=useState(false)
   const onAdd = (cantidad)=>{
-    addItem(detail, cantidad)
+    addItem(item, cantidad)
     SetPurchase (true)
   }
   
@@ -28,7 +28,7 @@ const ItemDetail = ({ item }) => {
       <p><strong>Precio:</strong> ${item.price}</p>
     
       {purchase? <Link to="/cart" className="btn-btn-dark">Ir al carrito</Link>
-      : <ItemCount stock={5} initial={1} />}
+      : <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>}
     
     </div>
   )
