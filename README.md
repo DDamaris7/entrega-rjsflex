@@ -1,9 +1,12 @@
-# ALMA HEBRAL APPI
+# ALMA HEBRAL -E-COMMERCE
 
-Este proyecto fue creado para entender y aplicar react js en mi e-commers
+Este proyecto fue creado para entender y aplicar react js en mi e-commerce
 
 ### Instalación
-Fue creada con Node v22.19.0
+1. Clonar repositorio. https://github.com/DDamaris7/entrega-rjsflex
+2. Instalar dependencias npm install
+3. Ejecutar proyecto npm run dev
+4. Fue creada con Node v22.19.0
 
 
 ### Librerias 
