@@ -44,7 +44,7 @@ const terminarCompra = (e)=> {
             setOrderId(res.id)
             clear()
         })
-        .catch((error)=> console.log(error))
+        .catch((error)=> error(error))
         .finally(()=> setLoading(false))
     }
 }

@@ -3,10 +3,15 @@ import { productos } from "../mock/products";
 
 //creacion del contexto
 export const CartContext = createContext()
-
+//const carritoLS = JSON.parse(localStorage.getItem('carrito')) || []
 export const CartProvider = ({children})=>{
     const [cart, setCart]=useState([])
-   //agregar un item al carrito y que no se duplique 
+   
+    // useEffect(()=>{
+    //     localStorage.setItem('carrito', JSON.stringify(cart))
+    // },[cart])
+   
+    //agregar un item al carrito y que no se duplique 
    const addItem = (item, qty)=>{
       
     if (IsInCart(item.id)){

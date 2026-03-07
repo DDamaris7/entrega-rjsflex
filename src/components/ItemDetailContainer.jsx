@@ -30,7 +30,7 @@ const getProducto = (id) => {
             setInvalid(true)
           }
         })
-        .catch((err)=> console.log(err))
+        .catch((err)=> err(err))
         .finally(()=> setCargando(false))
     },[id])
 
